@@ -7,7 +7,7 @@ public class Task4 {
         System.out.println(taylor(5, 2));
     }
 
-    public static int fib (int a){
+    public static int fib (int a) {
         return (a == 0)? 0: (a == 1) ? 1 : fib(a - 1) + fib(a - 2);
     }
     public static int fac (int a){
