@@ -1,7 +1,6 @@
 package homework1;
 public class Task1 {
     public static void main (String[] args) {
-
         System.out.println(Match(3,0,3,0));
         System.out.println(Match(1,1,2,2));
         System.out.println(Match(2,3,1,2));
