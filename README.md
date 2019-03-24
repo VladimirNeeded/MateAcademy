@@ -1,2 +1,0 @@
-# MateAcademy
-homework
