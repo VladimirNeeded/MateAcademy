@@ -49,5 +49,4 @@ public class Task6 {
         }
         System.out.println("Минимальное значение матрицы: " + min);
     }
-
 }
