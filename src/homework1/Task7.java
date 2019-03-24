@@ -24,12 +24,12 @@ public class Task7 {
         }
 
         @Override
-        public String toString(){     //реализация toString
+        public String toString() {     //реализация toString
             return "Name: " + name + "\n"+ "Age : " + age;
         }
 
         @Override
-        public boolean equals (Object object){      //реализация equals (сравниваем объекты по возрасту)
+        public boolean equals (Object object) {      //реализация equals (сравниваем объекты по возрасту)
             Human human = (Human) object;
             return this.age == ((Human)object).age;
         }
@@ -39,7 +39,7 @@ public class Task7 {
             return age;
         }
 
-    public Human(String name, int age){
+    public Human(String name, int age) {
         this.name = name;
         this.age = age;
     }
