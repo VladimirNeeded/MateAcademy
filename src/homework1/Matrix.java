@@ -2,9 +2,14 @@ package homework1;
 
 import java.util.Arrays;
 
-public class Task6 {
+public class Matrix {
     public static void main(String[] args) {
-        int[][] matrix = {{2, 5, 1, 7}, {8, 3, 6, 2}, {6, 7, 2, 5}, {9, 1, 5, 4}};
+        int[][] matrix = {
+                {2, 5, 1, 7},
+                {8, 3, 6, 2},
+                {6, 7, 2, 5},
+                {9, 1, 5, 4}
+        };
         matrix(matrix); // выводит матрицу
         diagonal(matrix); // выводит диагональ матрицы
         max(matrix);    // выводит макимальное значение матрицы
