@@ -1,19 +1,12 @@
 package homework2;
 
-public class Task2_4 {
-    public static void main(String[] args){
-    Processor processor1 = new Processor("Intel", "i7", 7, 3.2, 300);
-    System.out.println(processor1);
-    }
-}
-
 final class Processor{                                    //immutable class
 
-    private String manufacturer;
-    private String model;
-    private int generation;
-    private double maxFrequency;
-    private int price;
+    final private String manufacturer;
+    final private String model;
+    final private int generation;
+    final private double maxFrequency;
+    final private int price;
 
     public Processor(String manufacturer, String model, int generation, double maxFrequency, int price) {
         this.manufacturer = manufacturer;

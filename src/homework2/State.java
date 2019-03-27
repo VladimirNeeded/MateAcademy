@@ -1,35 +1,31 @@
 package homework2;
 
-public class Task2_2 {
+public class State {
 
     public static void main(String[] args){
-
         Country ukraine = new Country("Ukraine", "Kyiv", 45000000);
 
+        // Какой процент населения страны проживает в Одессе?
+        double perPop = ((double)ukraine.odessa.population/(double)ukraine.population)*100;
 
-        double perPop = ((double)ukraine.odessa.population/(double)ukraine.population)*100; // Какой процент населения страны проживает в Одессе?
         System.out.println(perPop);
-
         System.out.println(ukraine.odessa.changeCountry());
-        System.out.println(ukraine.krym.changeCountry());
+        System.out.println(ukraine.crimea.changeCountry());
 
         Country.President vova = new Country.President();
         System.out.println(vova.getInfo());
-
-
     }
-       static class Country{
-
-        String name;
-        String capital;
-        Integer population;
+       protected static class Country {
+        private String name;
+        private String capital;
+        private Integer population;
 
         public Country(String name, String capital, Integer population) {
             this.name = name;
             this.capital = capital;
             this.population = population;
         }
-           static class President extends Human {
+           private static class President extends Human {
             String address;
 
             public String getInfo(){
@@ -42,10 +38,10 @@ public class Task2_2 {
                 return info.street +" "+ info.house + " "+info.number;
             }
            }
-           class Сity{                                                    //внутренний класс
-                String country;
-                String name;
-                Integer population;
+           private class Сity{                                                    //внутренний класс
+               protected String country;
+               private String name;
+               private Integer population;
 
             public Сity(String country, String name, Integer population) {
                 this.country = country;
@@ -57,16 +53,13 @@ public class Task2_2 {
                 return this.country;
              }
         }
-           Сity odessa = new Сity("Ukraine","Odessa", 990000);
+           protected Сity odessa = new Сity("Ukraine","Odessa", 990000);
 
-           Сity krym = new Country.Сity("Ukraine", "Krym", 2000000) {        // анонимный класс
+           protected Сity crimea = new Country.Сity("Ukraine", "crimea", 2000000) {        // анонимный класс
                public String changeCountry(){
                    this.country = "Russia";
                    return this.country;
                }
            };
-
     }
-
-
 }
