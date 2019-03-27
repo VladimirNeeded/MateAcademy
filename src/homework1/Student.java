@@ -1,8 +1,5 @@
 package homework1;
 
-class Student extends Human {
+class Student {
 
-    public Student(String name, int age) {
-        super(name, age);
-    }
 }

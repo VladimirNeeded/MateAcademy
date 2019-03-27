@@ -7,9 +7,14 @@ public class Match {
         System.out.println(Match(2,3,1,2));
         System.out.println(Match(1,1,1,3));
     }
-    public static int Match (int res1, int res2, int guessres1, int guesssres2 ) {
-        boolean guesScore = (res1 == guessres1) && (res2 == guesssres2);
-        boolean guesResult =((res1 > res2) && (guessres1 > guesssres2)||(res2 > res1) && (guesssres2 > guessres1)||(res1 == res2) && (guessres1 == guesssres2));
+    public static int Match (int goalsOfFirstTeam, int goalsOfSecondTeam, int hypotheticalGoalsOfFirstTeam, int hypotheticalGoalsOfSecondTeam ) {
+        boolean guesScore = (goalsOfFirstTeam == hypotheticalGoalsOfFirstTeam) && (goalsOfFirstTeam == hypotheticalGoalsOfSecondTeam);
+        boolean guesResult =((goalsOfFirstTeam > goalsOfSecondTeam)
+                && (hypotheticalGoalsOfFirstTeam > hypotheticalGoalsOfSecondTeam)
+                ||(goalsOfFirstTeam > goalsOfFirstTeam)
+                && (hypotheticalGoalsOfSecondTeam > hypotheticalGoalsOfFirstTeam)
+                ||(goalsOfFirstTeam == goalsOfSecondTeam)
+                && (hypotheticalGoalsOfFirstTeam == hypotheticalGoalsOfSecondTeam));
         int bet = (guesScore)? 2 : (guesResult) ? 1 : 0;
         return bet;
     }

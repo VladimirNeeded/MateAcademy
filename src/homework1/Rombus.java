@@ -2,9 +2,11 @@ package homework1;
 
 import java.util.Scanner;
 
-public class Romb {
+public class Rombus {
 
-    public static void main(String[] args) {drawRomb();}
+    public static void main(String[] args) {
+        drawRombus();
+    }
 
     public static void draw1(int i, String s) {
         for (int j = 0; j < (i + 1); j++)
@@ -14,7 +16,7 @@ public class Romb {
             for (int j = i; j < (size - 1); j++)
                 System.out.print(s);
     }
-    public static void drawRomb() {
+    public static void drawRombus() {
         Scanner scan = new Scanner(System.in);
         System.out.println("Укажите размер ромба: ");
         int size = scan.nextInt();
