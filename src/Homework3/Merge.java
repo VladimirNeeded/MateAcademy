@@ -8,14 +8,11 @@ public class Merge {
         int indexOfArray2 = 0;
         for (int i = 0; i < resultArray.length; i++) {
             if (indexOfArray1 > array1.length - 1) {
-                resultArray[i] = array2[indexOfArray2];
-                indexOfArray2++;
+                resultArray[i] = array2[indexOfArray2++];
             } else if (indexOfArray2 > array2.length - 1) {
-                resultArray[i] = array1[indexOfArray1];
-                indexOfArray1++;
+                resultArray[i] = array1[indexOfArray1++];
             } else if (array1[indexOfArray1] < array2[indexOfArray2]) {
-                resultArray[i] = array1[indexOfArray1];
-                indexOfArray1++;
+                resultArray[i] = array1[indexOfArray1++];
             }
             else {
                 resultArray[i] = array2[indexOfArray2];
@@ -25,7 +22,7 @@ public class Merge {
         return resultArray;
     }
 
-    public static void drawArray(int[] array){
+    protected static void drawArray(int[] array){
         for (int i : array){
             System.out.print(i + " ");
         }

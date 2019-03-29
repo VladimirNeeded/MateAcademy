@@ -1,6 +1,7 @@
 package Homework3;
 
-public class ScenarioMain extends Scenario{
+
+public class ScenarioMain {
 
     public static void main(String[] args) {
         String[] roles = {
@@ -17,6 +18,6 @@ public class ScenarioMain extends Scenario{
                 "Графиня: Но почему в таком виде?",
                 "Гость: Здесь не время и не место объяснять это.",
                 "Графиня: Вы правы.Садитесь, дорогой герцог"};
-        System.out.println(printTextPerRole(roles, textLines));
+        System.out.println(Scenario.printTextPerRole(roles, textLines));
     }
 }
