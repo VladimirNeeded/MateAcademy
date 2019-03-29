@@ -13,6 +13,7 @@ public class Scenario {
         }
         return result.toString();
     }
+
     public static String printTextPerRole(String[] roles, String[] textLines) {
         StringBuilder result = new StringBuilder();
         for (String role : roles) {
@@ -22,23 +23,6 @@ public class Scenario {
             result.append("\n");
         }
         return result.toString();
-    }
-    public static void main(String[] args) {
-        String[] roles = {
-                "Герцог",
-                "Граф",
-                "Графиня",
-                "Гость"};
-        String[] textLines = {"Графиня: Кто вы?!",
-                "Гость: Я… Я тот, которого вы видите перед собой.",
-                "Графиня: Очень остроумно. Что-нибудь случилось?",
-                "Гость: Ничего особенного, но… Дело в том, что… Позвольте сказать вам пару слов по секрету.",
-                "Графиня: Вы?",
-                "Гость: Так уж получилось",
-                "Графиня: Но почему в таком виде?",
-                "Гость: Здесь не время и не место объяснять это.",
-                "Графиня: Вы правы.Садитесь, дорогой герцог"};
-        System.out.println(printTextPerRole(roles, textLines));
     }
 }
 
