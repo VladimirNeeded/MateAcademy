@@ -3,7 +3,7 @@ package Homework5;
 import java.util.Arrays;
 
 public class MyHashMap<K, V> {
-        private static final int Capacity = 12;
+        private static final int CAPACITY = 12;
         private int size = 0;
         private Node<K, V>[] table;
 
@@ -12,7 +12,7 @@ public class MyHashMap<K, V> {
         }
 
         public MyHashMap() {
-            this(Capacity);
+            this(CAPACITY);
         }
 
         private static class Node<K, V> {
@@ -39,6 +39,10 @@ public class MyHashMap<K, V> {
             }
         }
 
+        public static int increaseCapacity(int increaseValue){
+            return CAPACITY + increaseValue;
+        }
+
         private final int hash(K key) {
             return key.hashCode();
         }
@@ -60,8 +64,11 @@ public class MyHashMap<K, V> {
         }
 
         public V get(K key) {
-            Node<K, V> node = getNode(key);
-            return node.value;
+            if (indexOf(key) != -1) {
+                Node<K, V> node = getNode(key);
+                return node.value;
+            }
+            return null;
         }
 
         private Node<K, V> getNode(K key) {
@@ -74,10 +81,13 @@ public class MyHashMap<K, V> {
         }
 
         public V remove(K key) {
-            Node<K, V> removedNode = getNode(key);
-            table[indexOf(key)] = null;
-            size--;
-            return removedNode.value;
+            if (indexOf(key) != -1) {
+                Node<K, V> removedNode = getNode(key);
+                table[indexOf(key)] = null;
+                size--;
+                return removedNode.value;
+            }
+            return null;
         }
 
         private int indexOf(K key) {
@@ -90,7 +100,7 @@ public class MyHashMap<K, V> {
         }
 
         public void clear() {
-            table = (Node<K, V>[]) new Node[Capacity];
+            table = (Node<K, V>[]) new Node[CAPACITY];
             size = 0;
         }
 

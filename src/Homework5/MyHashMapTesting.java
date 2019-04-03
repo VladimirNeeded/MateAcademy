@@ -7,6 +7,7 @@ public class MyHashMapTesting {
         clients.put(2, "Pavlo");
         clients.put(3, "Igor");
         clients.put(4, "Vadim");
+        clients.put(5, "Vadim");
         clients.remove(2);
         System.out.println(clients.size());
         System.out.println(clients.get(3));
