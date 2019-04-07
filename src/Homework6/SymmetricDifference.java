@@ -1,17 +1,18 @@
 package Homework6;
 
 import java.util.ArrayList;
+import java.util.Set;
 
 public class SymmetricDifference {
     public static void main(String[] args) {
         Integer[] array1 = {5, 1, 8, 3, 7, 9};
         Integer[] array2 = {6, 5, 3, 7, 9};
-        drawArray(symmetricDifference(array1, array2));
+        drawArray(SymmetricDifference.<Object>symmetricDifference(array1, array2));
     }
-    private static ArrayList<Integer> symmetricDifference (Integer[] arr1, Integer[] arr2){
+    public static <T> ArrayList<Integer> symmetricDifference(Integer[] set1, Integer[] set2) {
         ArrayList<Integer> resultList = new ArrayList<>();
-        resultList = merge(symmetricChecked(arr1, arr2), symmetricChecked(arr2, arr1));
-        return resultList;
+        resultList = merge(symmetricChecked(set1, set2), symmetricChecked(set2, set1));
+        return (ArrayList<Integer>) resultList;
     }
 
     private static ArrayList<Integer> symmetricChecked(Integer[] arr1, Integer[] arr2){

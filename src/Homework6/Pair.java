@@ -11,17 +11,28 @@ public class Pair<F, S> {
         this.secondValue = secondValue;
     }
 
-    protected F getFirstValue(){
+    public F getFirstValue(){
         return firstValue;
     }
 
-    protected S getSecondValue(){
+    public S getSecondValue(){
         return secondValue;
     }
 
-    public boolean equals(Pair pair){
-        return this != null && this.getClass() == pair.getClass() &&
-        this.firstValue == pair.firstValue && this.secondValue == pair.secondValue;
+    public boolean equals(Object pair){
+//        return this != null && this.getClass() == pair.getClass() &&
+//        this.firstValue == pair.firstValue && this.secondValue == pair.secondValue;
+        if (pair == this) {
+            return true;
+        }
+        if (pair == null || pair.getClass() != this.getClass()) {
+            return false;
+        }
+        Pair comparedPair = (Pair) pair;
+        return (firstValue == comparedPair.firstValue ||
+               (firstValue != null && firstValue.equals(comparedPair.getFirstValue()))) &&
+               (secondValue == comparedPair.secondValue ||
+               (secondValue != null && secondValue.equals(comparedPair.getSecondValue())));
     }
 
     public int hashCode(){
