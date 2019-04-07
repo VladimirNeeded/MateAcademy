@@ -1,21 +1,37 @@
 package Homework6;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Set;
 
 public class SymmetricDifference {
     public static void main(String[] args) {
-        Integer[] array1 = {5, 1, 8, 3, 7, 9};
-        Integer[] array2 = {6, 5, 3, 7, 9};
-        drawArray(SymmetricDifference.<Object>symmetricDifference(array1, array2));
+//        Integer[] array1 = {5, 1, 8, 3, 7, 9};
+//        Integer[] array2 = {6, 5, 3, 7, 9};
+        Set<Integer> myHashSet = new HashSet<Integer>();
+        myHashSet.add(1);
+        myHashSet.add(2);
+        myHashSet.add(3);
+        Set<Integer> myHashSet2 = new HashSet<Integer>();
+        myHashSet.add(1);
+        myHashSet.add(2);
+        myHashSet.add(4);
+
+        symmetricDifference(myHashSet, myHashSet2);
     }
-    public static <T> ArrayList<Integer> symmetricDifference(Integer[] set1, Integer[] set2) {
+    public static <T> Set<T> symmetricDifference(Set<? extends T> set1, Set<? extends T> set2) {
+        Object[] array1 = set1.toArray();
+        Object[] array2 = set2.toArray();
         ArrayList<Integer> resultList = new ArrayList<>();
-        resultList = merge(symmetricChecked(set1, set2), symmetricChecked(set2, set1));
-        return (ArrayList<Integer>) resultList;
+        resultList = merge(symmetricChecked(array1, array2), symmetricChecked(array2, array1));
+        Set<Integer> resultSet = new HashSet<Integer>();
+        for (int i = 0; i < resultList.size(); i++){
+            resultSet.add(resultList.get(i));
+        }
+        return (Set<T>) resultSet;
     }
 
-    private static ArrayList<Integer> symmetricChecked(Integer[] arr1, Integer[] arr2){
+    private static ArrayList<Integer> symmetricChecked(Object[] arr1, Object[] arr2){
         ArrayList<Integer> resultList = new ArrayList<>();
         for (int i = 0; i < arr1.length; i++){
             int checkCounter = 0;
@@ -24,7 +40,7 @@ public class SymmetricDifference {
                     checkCounter++;
                 }
                 if (checkCounter == arr2.length){
-                    resultList.add(arr1[i]);
+                    resultList.add((Integer) arr1[i]);
                 }
             }
         }
@@ -42,9 +58,9 @@ public class SymmetricDifference {
         return resultList;
     }
 
-    private static void drawArray(ArrayList<Integer> ArrayList){
-        for (int i = 0; i < ArrayList.size(); i++){
-            System.out.println(ArrayList.get(i));
-        }
-    }
+//    private static void drawArray(Set<Integer> ){
+//        for (int i = 0; i < ArrayList.size(); i++){
+//            System.out.println(ArrayList.get(i));
+//        }
+//    }
 }
