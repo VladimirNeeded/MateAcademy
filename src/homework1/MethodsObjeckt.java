@@ -3,15 +3,15 @@ package homework1;
 public class MethodsObjeckt {
     public static void main (String[] args) throws CloneNotSupportedException{
 
-        Human Pavlo = new Human("Pavlo", 20);
-        Human Igor = new Human("Igor", 20);
-        Human igor = (Human)Igor.clone(); //пример реализация clone
+        Human pavlo = new Human("Pavlo", 20);
+        Human igor = new Human("Igor", 20);
+        Human clonedIgor = (Human)igor.clone(); //пример реализация clone
 
-        System.out.println(Pavlo);              //пример реализация toString
-        System.out.println(Pavlo.equals(Igor)); //пример реализация equals
-        System.out.println(Pavlo.hashCode());   //пример реализация hashCode
-        System.out.println(Igor.hashCode());    //пример реализация hashCode
-        System.out.println(Igor.equals(igor));
+        System.out.println(pavlo);              //пример реализация toString
+        System.out.println(pavlo.equals(igor)); //пример реализация equals
+        System.out.println(pavlo.hashCode());   //пример реализация hashCode
+        System.out.println(igor.hashCode());    //пример реализация hashCode
+        System.out.println(igor.equals(igor));
     }
 }
 

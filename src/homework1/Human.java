@@ -2,9 +2,14 @@ package homework1;
 
 import java.util.Objects;
 
-class Human implements Cloneable{
+class Human implements Cloneable {
     private int age;
     private String name;
+
+    public Human(String name, int age){
+        this.name = name;
+        this.age = age;
+    }
 
     public int getAge() {
         return age;
@@ -44,23 +49,5 @@ class Human implements Cloneable{
     @Override
     public int hashCode() {
         return Objects.hash(age, name);
-    }
-
-    //@Override
-//    public boolean equals (Object object){
-//        Human human = (Human) object;
-//        return this.age == ((Human)object).age;
-//    }
-//
-//    @Override
-//    public int hashCode (){
-//
-//        return age;
-//    }
-
-
-    public Human(String name, int age){
-        this.name = name;
-        this.age = age;
     }
 }
