@@ -1,7 +1,7 @@
 package homework4;
 
 public class MyLinkedListTesting {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         List<String> myLL = new MyLinkedList<>();
         myLL.add("One");
         myLL.add("Two",1);

@@ -3,11 +3,11 @@ package homework4;
 import java.util.ArrayList;
 
 public class MyArrayListTesting {
-    public static void main(String[] args) {
-        MyArrayList <String> myAL = new MyArrayList<>();
+    public static void main(String[] args) throws Exception {
+        List<String> myAL = new MyArrayList<>();
         myAL.add("One");
         myAL.add("Two", 1);
-        MyArrayList<String> myAL2 = new MyArrayList<>();
+        List<String> myAL2 = new MyArrayList<>();
         myAL2.add("Three");
         myAL2.add("Four");
         myAL.addAll(myAL2);
