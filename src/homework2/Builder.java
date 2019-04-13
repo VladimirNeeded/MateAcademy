@@ -10,7 +10,6 @@ public class Builder {
                 .withHeight(175)
                 .withWeight(75)
                 .build();
-
         Human student2 = new Human.HumanBuilder()
                 .withName("Karina")
                 .withSurname("Avakova")
@@ -18,7 +17,6 @@ public class Builder {
                 .withHeight(160)
                 .withWeight(47)
                 .build();
-
         System.out.println(student1);
         System.out.println(student2);
     }

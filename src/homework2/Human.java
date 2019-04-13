@@ -12,7 +12,6 @@ package homework2;
         private Human newHuman;
 
         public HumanBuilder(){
-
             newHuman = new Human();
         }
         public HumanBuilder withName(String name){

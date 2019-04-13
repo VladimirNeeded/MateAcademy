@@ -3,10 +3,10 @@ package homework2;
 public class State {
 
     public static void main(String[] args){
-        Country ukraine = new Country("Ukraine", "Kyiv", 45000000);
+        State.Country ukraine = new State.Country("Ukraine", "Kyiv", 45000000);
 
         // Какой процент населения страны проживает в Одессе?
-        double perPop = ((double)ukraine.odessa.population/(double)ukraine.population)*100;
+        double perPop = ((double) ukraine.odessa.population / (double) ukraine.population) * 100;
 
         System.out.println(perPop);
         System.out.println(ukraine.odessa.changeCountry());
@@ -15,7 +15,7 @@ public class State {
         Country.President vova = new Country.President();
         System.out.println(vova.getInfo());
     }
-       protected static class Country {
+        protected static class Country {
         private String name;
         private String capital;
         private Integer population;
@@ -38,7 +38,7 @@ public class State {
                 return info.street +" "+ info.house + " "+info.number;
             }
            }
-           private class Сity{                                                    //внутренний класс
+           private class Сity {                                                    //внутренний класс
                protected String country;
                private String name;
                private Integer population;

@@ -1,7 +1,8 @@
 package homework2;
 
-final class Processor{                                    //immutable class
+ public final class Processor {
 
+    //immutable class
     final private String manufacturer;
     final private String model;
     final private int generation;

@@ -15,10 +15,5 @@ public class Main extends SortUtils {
         int[]array3 = new int[array1.length+array2.length];
         drawArray(array1);
         drawArray(array2);
-
-
-
-        Processor processor1 = new Processor("Intel", "i7", 7, 3.2, 300);
-
     }
 }
