@@ -3,11 +3,7 @@ package homework4;
 public class MyLinkedList<T> implements List<T> {
     private Node firstNode;
     private Node lastNode;
-    private int size;
-
-    public MyLinkedList() {
-        size = 0;
-    }
+    private int size = 0;
 
     @Override
     public void add(T value) {
@@ -37,7 +33,6 @@ public class MyLinkedList<T> implements List<T> {
             currentNode.prev = currentNode;
         } else if (index == size) {
             add(value);
-            size--;
         } else {
             int i = 0;
             Node indexNode = firstNode;
@@ -115,7 +110,7 @@ public class MyLinkedList<T> implements List<T> {
             firstNode = firstNode.next;
         }
         else {
-            for (int i = 0; i < size; i++){
+            while (removedNode.value != t){
                 removedNode = firstNode.next;
             }
         }
@@ -134,15 +129,16 @@ public class MyLinkedList<T> implements List<T> {
     public boolean isEmpty() {
         return size == 0;
     }
-}
-class Node<T> {
-    Node prev;
-    Node next;
-    T value;
 
-    public Node(Node prev, Node next, T value) {
-        this.prev = prev;
-        this.next = next;
-        this.value = value;
+    private class Node<T> {
+        private Node prev;
+        private Node next;
+        private T value;
+
+        public Node(Node prev, Node next, T value) {
+            this.prev = prev;
+            this.next = next;
+            this.value = value;
+        }
     }
 }

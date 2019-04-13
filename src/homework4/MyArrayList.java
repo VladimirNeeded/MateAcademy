@@ -4,9 +4,8 @@ import java.util.Arrays;
 
 public class MyArrayList <T> implements List<T> {
     int size = 0;
-    int capacity = 0;
+    private int capacity = 0;
     T[] array;
-   // int index = 0;
 
     public MyArrayList() {
         array = (T[]) new Object[capacity];
@@ -19,7 +18,7 @@ public class MyArrayList <T> implements List<T> {
     @Override
     public void add(T value) {
         if (array.length >= capacity){
-            array = Arrays.copyOf(array, array.length + 1);
+            array = (T[]) increaseCapacity(array);
         }
         array[size] = value;
         size ++;
@@ -27,12 +26,14 @@ public class MyArrayList <T> implements List<T> {
 
     @Override
     public void add(T value, int index) {
-        array = Arrays.copyOf(array, array.length + 1);
-        for (int i = index; i < array.length - 1; i++) {
-            array[i + 1] = array[i];
+        if (checkIndex(index)) {
+            array = (T[]) increaseCapacity(array);
+            for (int i = index; i < array.length - 1; i++) {
+                array[i + 1] = array[i];
+            }
+            array[index] = value;
+            size++;
         }
-        array[index] = value;
-        size++;
     }
 
     @Override
@@ -40,29 +41,38 @@ public class MyArrayList <T> implements List<T> {
         array = Arrays.copyOf(array, array.length + list.size());
         for (int i = array.length - list.size(), j = 0; i < array.length; i++, j++){
             array[i] = list.get(j);
+            size++;
         }
     }
 
     @Override
     public T get(int index) {
-        return array[index];
+        if (checkIndex(index)) {
+            return array[index];
+        }
+        return null;
     }
 
     @Override
     public void set(T value, int index) {
-        array[index] = value;
+        if (checkIndex(index)) {
+            array[index] = value;
+        }
     }
 
     @Override
     public T remove(int index) {
-        T removedValue = array[index];
-        for (int i = index; i < array.length - 1; i++){
-            array[i] = array[i+1];
-        }
-        size--;
-        array = Arrays.copyOf(array, array.length - 1);
+        if (checkIndex(index)) {
+            T removedValue = array[index];
+            for (int i = index; i < array.length - 1; i++) {
+                array[i] = array[i + 1];
+            }
+            size--;
+            array = Arrays.copyOf(array, array.length - 1);
 
-        return removedValue;
+            return removedValue;
+        }
+        return null;
     }
 
     @Override
@@ -78,13 +88,22 @@ public class MyArrayList <T> implements List<T> {
 
     @Override
     public int size() {
-        return array.length;
+        return size;
     }
 
     @Override
     public boolean isEmpty() {
-        return size==0;
+        return size == 0;
+    }
+
+    protected static Object[] increaseCapacity(Object[] array){
+        return array = Arrays.copyOf(array,array.length + 1);
+    }
+
+    protected boolean checkIndex(int index){
+        if (index < 0 || index > this.size){
+            return false;
+        }
+        return true;
     }
 }
-
-

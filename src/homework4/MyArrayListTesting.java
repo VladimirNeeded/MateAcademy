@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class MyArrayListTesting {
     public static void main(String[] args) {
-        MyArrayList<String> myAL = new MyArrayList<>();
+        MyArrayList <String> myAL = new MyArrayList<>();
         myAL.add("One");
         myAL.add("Two", 1);
         MyArrayList<String> myAL2 = new MyArrayList<>();
@@ -15,6 +15,7 @@ public class MyArrayListTesting {
             System.out.println(myAL.get(i));
         }
         System.out.println(myAL.get(2));
+        System.out.println(myAL2.get(1));
         myAL2.set("Trio",0);
         for (int i = 0; i < myAL2.size(); i++){
             System.out.println(myAL2.get(i));
@@ -23,10 +24,5 @@ public class MyArrayListTesting {
         myAL2.remove("Four");
         System.out.println(myAL2.size());
         System.out.println(myAL2.isEmpty());
-
-
-
     }
-
 }
-
