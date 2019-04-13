@@ -34,26 +34,21 @@ public class SortUtils {
         return array;
     }
 
-    public static int[] mergeArrays(int[] array1, int[] array2) {
-        int i = 0, j = 0;
-        int[] resultArray = new int[array1.length + array2.length];
-        for (int k = 0; k < resultArray.length; k++) {
-            if (i > array1.length - 1) {
-                int a = array2[j];
-                resultArray[k] = a;
-                j++;
-            } else if (j > array2.length - 1) {
-                int a = array1[i];
-                resultArray[k] = a;
-                i++;
-            } else if (array1[i] < array2[j]) {
-                int a = array1[i];
-                resultArray[k] = a;
-                i++;
+    public static int[] mergeArrays(int[] firstArray, int[] secondArray) {
+        int[] resultArray = new int[firstArray.length + secondArray.length];
+        for (int i = 0, j = 0, k = 0; k < resultArray.length; k++, i++, j++) {
+            if (i > firstArray.length - 1) {
+                int currentElement = secondArray[j];
+                resultArray[k] = currentElement;
+            } else if (j > secondArray.length - 1) {
+                int currentElement = firstArray[i];
+                resultArray[k] = currentElement;
+            } else if (firstArray[i] < secondArray[j]) {
+                int currentElement = firstArray[i];
+                resultArray[k] = currentElement;
             } else {
-                int b = array2[j];
-                resultArray[k] = b;
-                j++;
+                int currentElement = secondArray[j];
+                resultArray[k] = currentElement;
             }
         }
         return sortBubble(resultArray);
