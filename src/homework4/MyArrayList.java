@@ -23,7 +23,7 @@ public class MyArrayList <T> implements List<T> {
     }
 
     @Override
-    public void add(T value, int index) throws Exception {
+    public void add(T value, int index) {
         checkIndex(index);
         increaseCapacity();
         for (int i = index; i < array.length - 1; i++) {
@@ -34,7 +34,7 @@ public class MyArrayList <T> implements List<T> {
     }
 
     @Override
-    public void addAll(List<T> list) throws Exception {
+    public void addAll(List<T> list) {
         array = Arrays.copyOf(array, array.length + list.size());
         for (int i = array.length - list.size(), j = 0; i < array.length; i++, j++){
             array[i] = list.get(j);
@@ -43,19 +43,19 @@ public class MyArrayList <T> implements List<T> {
     }
 
     @Override
-    public T get(int index) throws Exception {
+    public T get(int index) {
         checkIndex(index);
         return array[index];
     }
 
     @Override
-    public void set(T value, int index) throws Exception {
+    public void set(T value, int index) {
         checkIndex(index);
             array[index] = value;
     }
 
     @Override
-    public T remove(int index) throws Exception {
+    public T remove(int index) {
         checkIndex(index);
         T removedValue = array[index];
         for (int i = index; i < array.length - 1; i++) {
@@ -92,8 +92,9 @@ public class MyArrayList <T> implements List<T> {
 
     }
 
-    private void checkIndex(int index) throws Exception {
+    private void checkIndex(int index) {
         if (index < 0 || index > this.size){
-        } throw new Exception ("Index is uncorrected");
+            throw new IndexOutOfBoundsException("Index is not corrected");
+        }
     }
 }

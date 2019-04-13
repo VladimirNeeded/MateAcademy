@@ -3,7 +3,7 @@ package homework4;
 import java.util.ArrayList;
 
 public class MyArrayListTesting {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         List<String> myAL = new MyArrayList<>();
         myAL.add("One");
         myAL.add("Two", 1);
