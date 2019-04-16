@@ -19,9 +19,12 @@ public class findMinMax {
         listStream = stream.collect(Collectors.toList());
         Stream<T> stream1 = listStream.stream();
         Stream<T> stream2 = listStream.stream();
-        T min = (T) stream1.min(order).get();
-        T max = (T) stream2.max(order).get();
-        minMaxConsumer.accept(min, max);
+        if (listStream.size() == 0) {
+            minMaxConsumer.accept(null, null);
+        }else {
+            T min = (T) stream1.min(order).get();
+            T max = (T) stream2.max(order).get();
+            minMaxConsumer.accept(min, max);
+        }
     }
 }
-
