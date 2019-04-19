@@ -21,17 +21,18 @@ public class AsciiCharSequence implements CharSequence {
 
     @Override
     public CharSequence subSequence(int start, int end) {
-        byte[] newByteArray = new byte[end-start+1];
-        for (int i = 0, j = start; j < newByteArray.length; j++, i++){
-            newByteArray[i] = byteArray[j];
+        if (start > end || start < 0 || end > this.length()) {
+            return this;
         }
-        CharSequence asciiCharSequence = new AsciiCharSequence(newByteArray);
-        return asciiCharSequence;
+            byte[] newByteArray = new byte[end-start+1];
+            for (int i = 0, j = start; j < newByteArray.length; j++, i++){
+                newByteArray[i] = byteArray[j];
+            }
+            return new AsciiCharSequence(newByteArray);
     }
 
     @Override
     public String toString() {
-        String stringOfChar = new String(byteArray);
-        return stringOfChar;
+        return new String(byteArray);
     }
 }

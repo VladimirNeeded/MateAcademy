@@ -3,27 +3,27 @@ package Homework10;
 import java.util.Objects;
 
 public final class ComplexNumber {
-    private final double re;
-    private final double im;
+    private final double real;
+    private final double imaginary;
 
     public ComplexNumber(double re, double im) {
-        this.re = re;
-        this.im = im;
+        this.real = re;
+        this.imaginary = im;
     }
 
     public double getRe() {
-        return re;
+        return real;
     }
 
     public double getIm() {
-        return im;
+        return imaginary;
     }
 
     @Override
     public boolean equals(Object object) {
         ComplexNumber complexNumber = (ComplexNumber) object;
         if(object != null && this.getClass() == object.getClass()){
-            if (this.im == ((ComplexNumber) object).im && this.re == ((ComplexNumber) object).re ){
+            if (this.imaginary == ((ComplexNumber) object).imaginary && this.real == ((ComplexNumber) object).real ){
                 return true;
             }
         }
@@ -32,6 +32,6 @@ public final class ComplexNumber {
 
     @Override
     public int hashCode() {
-        return Objects.hash(re, im);
+        return Objects.hash(real, imaginary);
     }
 }
