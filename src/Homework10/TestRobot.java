@@ -9,22 +9,12 @@ public class TestRobot {
     }
     public static void moveRobot(RobotConnectionManager robotConnectionManager, int toX, int toY) throws RobotConnectionException {
         RobotConnection robotConnection = new Robot(true);
+        for (int i = 0; i < 3; i++){
         try {
             robotConnectionManager.getConnection();
             robotConnection.moveRobotTo(toX, toY);
         } catch (RobotConnectionException e){
             System.out.println("Подключение не удалось");
-            try {
-                robotConnectionManager.getConnection();
-                robotConnection.moveRobotTo(toX, toY);
-            } catch (RobotConnectionException e2) {
-                System.out.println("Подключение не удалось");
-                try {
-                    robotConnectionManager.getConnection();
-                    robotConnection.moveRobotTo(toX, toY);
-                }catch (RobotConnectionException e3){
-                    System.out.println("Подключение не удалось");
-                }
             }
         }
 

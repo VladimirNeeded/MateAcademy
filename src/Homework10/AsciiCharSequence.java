@@ -21,9 +21,14 @@ public class AsciiCharSequence implements CharSequence {
 
     @Override
     public CharSequence subSequence(int start, int end) {
-        if (start > end || start < 0 || end > this.length()) {
-            return this;
-        }
+        try {
+            if (start > end || start < 0 || end > length()) {
+                throw new Exception();
+            }
+            }catch (Exception e) {
+                System.out.println("Uncorrected index");
+                return (CharSequence) e;
+            }
             byte[] newByteArray = new byte[end-start+1];
             for (int i = 0, j = start; j < newByteArray.length; j++, i++){
                 newByteArray[i] = byteArray[j];
