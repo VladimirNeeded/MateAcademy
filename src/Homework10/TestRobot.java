@@ -7,16 +7,18 @@ public class TestRobot {
         RobotConnectionManager robotConnectionManager = new Robot(true);
         moveRobot(robotConnectionManager, 5, 5);
     }
-    public static void moveRobot(RobotConnectionManager robotConnectionManager, int toX, int toY) throws RobotConnectionException {
-        RobotConnection robotConnection = new Robot(true);
-        for (int i = 0; i < 3; i++){
-        try {
-            robotConnectionManager.getConnection();
-            robotConnection.moveRobotTo(toX, toY);
-        } catch (RobotConnectionException e){
-            System.out.println("Подключение не удалось");
+    public static void moveRobot(RobotConnectionManager robotConnectionManager, int toX, int toY) {
+        boolean isMove = false;
+        for (int i = 0; i < 3 && isMove; i++){
+            try(RobotConnection robotConnection = robotConnectionManager.getConnection();) {
+                robotConnectionManager.getConnection();
+                robotConnection.moveRobotTo(toX, toY);
+                isMove = true;
+            }catch (RobotConnectionException e){
+                if (i == 2) {
+                    throw new RobotConnectionException("Подключение не удалось");
+                }
             }
         }
-
     }
 }
